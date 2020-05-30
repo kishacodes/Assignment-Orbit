@@ -1,0 +1,28 @@
+<h3>Orbit Report</h3>
+<table>
+  <thead>
+    <tr class="header-row">
+      <th class="sortable">Name</th>
+      <th class="sortable">Type</th>
+      <th>Operational</th>
+      <th>Orbit Type</th>
+      <th>Launch Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let satellite of satellites">
+      <td>{{ satellite.name }}</td>
+      <td>{{ satellite.type }}</td>
+      <td>{{ satellite.operational }}</td>
+      <td>{{ satellite.orbitType }}</td>
+      <td>{{ satellite.launchDate }}</td>
+      <!-- {{
+        satellite.name
+      }} -->
+    </tr>
+  </tbody>
+  <!-- <td *ngFor="let satellite of satellites">
+      {{ satellite.name }}
+    </td> -->
+  <!-- TODO: put <tr *ngFor=""></tr> here -->
+</table>
