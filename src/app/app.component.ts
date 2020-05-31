@@ -8,10 +8,13 @@ import { Satellite } from "./satellite";
 })
 export class AppComponent {
   sourceList: Satellite[];
+  displayList: Satellite[];
   constructor() {
     // title = "orbit-report";
     // headers: ["Name", "Type", "Operational", "Orbit Type", "Launch Date"];
+    this.displayList = [];
     this.sourceList = [];
+
     let satellitesUrl =
       "https://handlers.education.launchcode.org/static/satellites.json";
 
@@ -31,6 +34,7 @@ export class AppComponent {
                 fetchedSatellites[i]["operational"]
               );
               this.sourceList.push(satellite);
+              this.displayList = this.sourceList.slice(0);
             }
           }.bind(this)
         );
@@ -52,4 +56,18 @@ export class AppComponent {
   //     new Satellite("ISS", "Space Station", "1998-11-20", "LOW", true),
   //   ];
   // }
+  search(searchTerm: string): void {
+    let matchingSatellites: Satellite[] = [];
+    searchTerm = searchTerm.toLowerCase();
+    for (let i = 0; i < this.sourceList.length; i++) {
+      let name = this.sourceList[i].name.toLowerCase();
+      if (name.indexOf(searchTerm) >= 0) {
+        matchingSatellites.push(this.sourceList[i]);
+      }
+    }
+    // assign this.displayList to be the the array of matching satellites
+    // this will cause Angular to re-make the table, but now only containing matches
+
+    this.displayList = matchingSatellites;
+  }
 }
