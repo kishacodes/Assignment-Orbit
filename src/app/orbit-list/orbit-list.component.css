@@ -31,3 +31,11 @@ td {
 .warning {
   background-color: pink;
 }
+
+tr:nth-child(odd) {
+  background-color: rgb(223, 236, 223);
+}
+
+tr:nth-child(even) {
+  background-color: lightblue;
+}
