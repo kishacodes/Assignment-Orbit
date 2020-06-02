@@ -11,4 +11,12 @@ export class OrbitCountsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  findCountOf(key: string) {
+    let count: number = 0;
+    for (let satellite of this.satellites) {
+      if (this.satellites["type"] === key) count = count + 1;
+    }
+    return count;
+  }
 }
