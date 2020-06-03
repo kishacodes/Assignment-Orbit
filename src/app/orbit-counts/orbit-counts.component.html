@@ -1,31 +1,24 @@
 <h3>Satellite Counts:</h3>
 <div class="counts">
-  <table>
-    <tr *ngFor="let item of satellites"></tr>
-    <td>Total:</td>
-    <td>
-      {{ satellites.length }}
-    </td>
-
-    <tr>
-      Total Space Debris:
-    </tr>
-    <td [class.counts]="findCountOf(key)">
-      {{ count.value }}
-    </td>
-    <tr>
-      Total Communication:
-    </tr>
-  </table>
-  <!-- <div *ngFor="let item of satellites | key: value">
-    <p>{{ item.key }}:{{ item.value }}</p>
-  </div> -->
-  <!-- <div>
-    <p>Total:</p>
-    <span> {{ satellites.length }}</span>
+  <div>
+    Total: <span> {{ satellites.length }}</span>
   </div>
   <div>
-    {{ satellites.type }} <span> {{ i }} </span>
+    Space Debris: <span> {{ findCountOf("Space Debris") }}</span>
   </div>
-</div> -->
+  <div>
+    Communication: <span> {{ findCountOf("Communication") }}</span>
+  </div>
+  <div>
+    Probe: <span> {{ findCountOf("Probe") }}</span>
+  </div>
+  <div>
+    Positioning: <span> {{ findCountOf("Positioning") }}</span>
+  </div>
+  <div>
+    Space Station: <span> {{ findCountOf("Space Station") }}</span>
+  </div>
+  <div>
+    Telescope: <span> {{ findCountOf("Telescope") }}</span>
+  </div>
 </div>
